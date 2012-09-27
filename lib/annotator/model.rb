@@ -12,7 +12,7 @@ module Annotator
     # Model class
     def klass
       begin 
-        @filename.split(@base_path).last.split(/\.rb$/).first.camelize.constantize rescue nil
+        File.basename(@filename, '.rb').camelize.constantize rescue nil
       rescue Exception
         nil
       end
